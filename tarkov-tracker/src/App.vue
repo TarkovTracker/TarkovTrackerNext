@@ -1,23 +1,30 @@
 <template>
   <v-app>
+    <!-- Navigation Drawer -->
+    <nav-drawer />
+    <!-- Main View -->
     <v-main>
-      <HelloWorld/>
+      <v-card height="200px">Test</v-card>
+      <app-footer />
     </v-main>
+    
   </v-app>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import NavDrawer from "./components/NavDrawer.vue";
+import AppFooter from "./components/AppFooter.vue";
 
 export default {
-  name: 'App',
+  name: "TarkovTracker",
 
   components: {
-    HelloWorld,
+    NavDrawer,
+    AppFooter,
   },
 
   data: () => ({
     //
   }),
-}
+};
 </script>
