@@ -1,18 +1,23 @@
 {
   "name": "tarkov-tracker",
-  "private": true,
   "version": "0.0.0",
+  "private": true,
   "scripts": {
-    "dev": "vite",
+    "serve": "vite preview",
     "build": "vite build",
-    "preview": "vite preview",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src",
-    "format": "prettier .  --write"
+    "dev": "vite",
+    "format": "prettier .  --write",
+    "preview": "vite preview"
   },
   "dependencies": {
+    "@mdi/font": "5.9.55",
     "pinia": "^2.0.14",
+    "roboto-fontface": "*",
     "vue": "^3.2.25",
-    "vue-router": "^4.0.16"
+    "vue-router": "^4.0.16",
+    "vuetify": "^3.0.0-beta.0",
+    "webfontloader": "^1.0.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^2.3.3",
@@ -21,6 +26,8 @@
     "eslint-plugin-vue": "^9.1.1",
     "prettier": "2.6.2",
     "vite": "^2.9.9",
-    "vite-plugin-eslint": "^1.6.1"
+    "vite-plugin-eslint": "^1.6.1",
+    "vite-plugin-vuetify": "^1.0.0-alpha.0",
+    "vue-cli-plugin-vuetify": "~2.5.1"
   }
 }
