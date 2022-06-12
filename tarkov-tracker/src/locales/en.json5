@@ -1,0 +1,4 @@
+{
+  // This file supports JSON5 notation. See https://json5.org/
+  hello_world: 'Hello World!'
+}
