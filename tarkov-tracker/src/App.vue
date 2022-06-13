@@ -12,19 +12,28 @@
 </template>
 
 <script>
-import NavDrawer from "./components/NavDrawer.vue";
-import AppFooter from "./components/AppFooter.vue";
-
+import { defineAsyncComponent } from 'vue'
 export default {
   name: "TarkovTracker",
 
   components: {
-    NavDrawer,
-    AppFooter,
+    NavDrawer: defineAsyncComponent(() =>
+      import("/src/components/NavDrawer.vue")
+    ),
+    AppFooter: defineAsyncComponent(() =>
+      import("/src/components/AppFooter.vue")
+    ),
   },
 
-  data: () => ({
-    //
-  }),
+  data: () => ({}),
 };
 </script>
+<style lang="scss">
+// Set the font family for the application to Share Tech Mono
+.v-application {
+  [class*="text-"] {
+    font-family: 'Share Tech Mono', sans-serif !important;
+  }
+  font-family: 'Share Tech Mono', sans-serif !important;
+}
+</style>

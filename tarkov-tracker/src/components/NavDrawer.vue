@@ -1,11 +1,14 @@
 <template>
   <v-navigation-drawer
     theme="dark"
-    image="https://tarkovtracker.io/img/tarkov-tracker-sidebar-01.jpg"
+    image="/img/tarkov-tracker-sidebar-01.jpg"
     width="260"
     permanent
   >
+    <tracker-logo />
+    <v-divider class="mx-3" />
     <v-list nav bg-color="transparent">
+      
       <v-list-item
         prepend-icon="mdi-email"
         title="Inbox"
@@ -25,10 +28,16 @@
     </v-list>
   </v-navigation-drawer>
 </template>
-
 <script>
+import { defineAsyncComponent } from 'vue'
 export default {
   name: "NavDrawer",
+
+  components: {
+    TrackerLogo: defineAsyncComponent(() =>
+      import("/src/components/drawer/TrackerLogo.vue")
+    ),
+  },
 
   data: () => ({}),
 };
