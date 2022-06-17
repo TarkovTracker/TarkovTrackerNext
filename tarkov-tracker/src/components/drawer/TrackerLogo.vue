@@ -1,5 +1,5 @@
 <template>
-  <v-list-item class="flex flex-column">
+  <v-list-item id="app-logo-item" class="flex flex-column" :ripple="false" to="/" >
     <v-list-item-avatar
       :class="appStore.drawerRail ? 'v-logo-rail' : 'v-logo-full'"
       style="height: auto; margin: 20px 0"
@@ -24,6 +24,10 @@ const appStore = useAppStore();
 </script>
 <style lang="scss">
 // Set up styles for rail and standard logo
+#app-logo-item > .v-list-item__overlay {
+  opacity: 0 !important;
+}
+
 .v-logo-full {
   width: 85%;
   min-width: 80%;

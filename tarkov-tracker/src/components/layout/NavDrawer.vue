@@ -4,22 +4,22 @@
     theme="dark"
     image="/img/tarkov-tracker-sidebar-01.jpg"
     :rail="appStore.drawerRail"
-    rail-width="56"
   >
     <tracker-logo />
-    <v-divider class="mx-3" />
+    <v-divider class="mx-3 my-1" />
     <v-list nav bg-color="transparent" class="mx-auto">
-      <!-- <drawer-item
+      <drawer-item
+        icon="mdi-email"
+        title="Home"
+        to="/"
+      >
+      </drawer-item>
+      <drawer-item
         icon="mdi-email"
         title="Test"
+        to="/test"
       >
-
-      </drawer-item> -->
-      <v-list-item
-        prepend-icon="mdi-email"
-        title="Inbox"
-        value="inbox"
-      ></v-list-item>
+      </drawer-item>
       <v-list-item
         prepend-icon="mdi-account-supervisor-circle"
         title="Supervisors"
@@ -27,7 +27,7 @@
       >
       </v-list-item>
       <v-list-item
-        prepend-icon="mdi-clock-start"
+        prepend-icon="mdi-email"
         title="Clock-in"
         value="clockin"
       ></v-list-item>
@@ -51,7 +51,18 @@ const appStore = useAppStore();
 const TrackerLogo = defineAsyncComponent(() =>
   import("/src/components/drawer/TrackerLogo.vue")
 );
-// const DrawerItem = defineAsyncComponent(() =>
-//   import("/src/components/drawer/DrawerItem.vue")
-// );
+const DrawerItem = defineAsyncComponent(() =>
+  import("/src/components/drawer/DrawerItem.vue")
+);
 </script>
+<style lang="scss">
+// Set up styles for rail and standard logo
+.v-logo-full {
+  width: 85%;
+  min-width: 80%;
+}
+
+.v-logo-rail {
+  width: 26px;
+}
+</style>
