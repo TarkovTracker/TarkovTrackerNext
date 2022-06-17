@@ -18,8 +18,6 @@ import pinia from './plugins/pinia'
 // Base app component
 import App from './App.vue'
 
-
-
 loadFonts()
 
 createApp(App)

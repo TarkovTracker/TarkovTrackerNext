@@ -5,7 +5,7 @@
   >
     <v-icon :icon="props.icon"/>
     <v-list-item-title v-if="!appStore.drawerRail" :class="titleClass">
-      {{ props.title }}
+      {{ $t(`navigation_drawer.${props.localeKey}`) }}
     </v-list-item-title>
   </v-list-item>
 </template>
@@ -20,7 +20,7 @@ const props = defineProps({
     default: "mdi-menu-right",
     required: false,
   },
-  title: {
+  localeKey: {
     type: String,
     required: true,
   },

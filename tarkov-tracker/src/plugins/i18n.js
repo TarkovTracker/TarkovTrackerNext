@@ -5,6 +5,7 @@ import messages from '@intlify/vite-plugin-vue-i18n/messages'
 const i18n = createI18n({
   globalInjection: true,
   locale: 'en',
+  fallbackLocale: 'en',
   messages
 })
 

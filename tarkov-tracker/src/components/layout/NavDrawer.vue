@@ -10,13 +10,13 @@
     <v-list nav bg-color="transparent" class="mx-auto">
       <drawer-item
         icon="mdi-email"
-        title="Home"
+        locale-key="home"
         to="/"
       >
       </drawer-item>
       <drawer-item
         icon="mdi-email"
-        title="Test"
+        locale-key="test"
         to="/test"
       >
       </drawer-item>
