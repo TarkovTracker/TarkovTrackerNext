@@ -4,10 +4,17 @@
     theme="dark"
     image="/img/tarkov-tracker-sidebar-01.jpg"
     :rail="appStore.drawerRail"
+    rail-width="56"
   >
     <tracker-logo />
     <v-divider class="mx-3" />
-    <v-list nav bg-color="transparent">
+    <v-list nav bg-color="transparent" class="mx-auto">
+      <!-- <drawer-item
+        icon="mdi-email"
+        title="Test"
+      >
+
+      </drawer-item> -->
       <v-list-item
         prepend-icon="mdi-email"
         title="Inbox"
@@ -44,4 +51,7 @@ const appStore = useAppStore();
 const TrackerLogo = defineAsyncComponent(() =>
   import("/src/components/drawer/TrackerLogo.vue")
 );
+// const DrawerItem = defineAsyncComponent(() =>
+//   import("/src/components/drawer/DrawerItem.vue")
+// );
 </script>

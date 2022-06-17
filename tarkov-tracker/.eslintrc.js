@@ -2,9 +2,16 @@ module.exports = {
   env: {
     node: true,
   },
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+    "vueFeatures": {
+      "filter": true,
+      "interpolationAsNonHTML": false,
+    }
+  },
   extends: [
-    'eslint:recommended',
     'plugin:vue/vue3-recommended',
+    'eslint:recommended',
     "prettier"
   ],
   rules: {
