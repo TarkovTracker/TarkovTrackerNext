@@ -11,7 +11,7 @@
     </v-list-item-avatar>
     <v-list-item-content v-if="!appStore.drawerUseRail(mdAndDown)">
       <div class="text-h5 text-center mt-2 font-weight-medium">
-        Tarkov Tracker
+        {{ $t('site_name') }}
       </div>
     </v-list-item-content>
   </v-list-item>
