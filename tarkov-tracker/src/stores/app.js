@@ -10,6 +10,9 @@ export const useAppStore = defineStore('app', {
   }),
   getters: {
     // State getters
+    drawerUseRail(state) {
+      return (mdAndDown) => !mdAndDown && state.drawerRail
+    }
   },
   actions: {
     // State mutations or setters

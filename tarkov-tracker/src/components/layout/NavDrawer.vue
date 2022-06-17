@@ -3,49 +3,34 @@
     v-model="appStore.drawerShow"
     theme="dark"
     image="/img/tarkov-tracker-sidebar-01.jpg"
-    :rail="appStore.drawerRail"
+    :rail="appStore.drawerUseRail(mdAndDown)"
   >
     <tracker-logo />
     <v-divider class="mx-3 my-1" />
     <v-list nav bg-color="transparent" class="mx-auto">
       <drawer-item
-        icon="mdi-email"
+        icon="mdi-view-dashboard"
         locale-key="home"
         to="/"
       >
       </drawer-item>
       <drawer-item
-        icon="mdi-email"
-        locale-key="test"
-        to="/test"
+        icon="mdi-cog"
+        locale-key="settings"
+        to="/settings"
       >
       </drawer-item>
-      <v-list-item
-        prepend-icon="mdi-account-supervisor-circle"
-        title="Supervisors"
-        value="supervisors"
-      >
-      </v-list-item>
-      <v-list-item
-        prepend-icon="mdi-email"
-        title="Clock-in"
-        value="clockin"
-      ></v-list-item>
     </v-list>
   </v-navigation-drawer>
 </template>
 <script setup>
-//import { computed } from 'vue'
 import { defineAsyncComponent } from "vue";
 import { useAppStore } from "/src/stores/app.js";
-// import { useDisplay } from 'vuetify'
+
+import { useDisplay } from 'vuetify'
+const { mdAndDown } = useDisplay()
 
 const appStore = useAppStore();
-
-// const { mobile } = useDisplay()
-// const showDrawer = computed(() => {
-//   return mobile ? true :
-// })
 
 // Set up component loading
 const TrackerLogo = defineAsyncComponent(() =>

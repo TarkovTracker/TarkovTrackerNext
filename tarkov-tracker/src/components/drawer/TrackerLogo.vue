@@ -1,7 +1,7 @@
 <template>
   <v-list-item id="app-logo-item" class="flex flex-column" :ripple="false" to="/" >
     <v-list-item-avatar
-      :class="appStore.drawerRail ? 'v-logo-rail' : 'v-logo-full'"
+      :class="appStore.drawerUseRail(mdAndDown) ? 'v-logo-rail' : 'v-logo-full'"
       style="height: auto; margin: 20px 0"
     >
       <v-img
@@ -9,7 +9,7 @@
         lazy-src="/favicon-32x32.png"
       />
     </v-list-item-avatar>
-    <v-list-item-content v-if="!appStore.drawerRail">
+    <v-list-item-content v-if="!appStore.drawerUseRail(mdAndDown)">
       <div class="text-h5 text-center mt-2 font-weight-medium">
         Tarkov Tracker
       </div>
@@ -19,8 +19,10 @@
 
 <script setup>
 import { useAppStore } from "/src/stores/app.js";
-
+import { useDisplay } from 'vuetify'
+const { mdAndDown } = useDisplay()
 const appStore = useAppStore();
+
 </script>
 <style lang="scss">
 // Set up styles for rail and standard logo
