@@ -2,6 +2,9 @@
 import '@mdi/font/css/materialdesignicons.css'
 import 'vuetify/styles'
 import colors from 'vuetify/lib/util/colors'
+import { useI18n } from 'vue-i18n'
+import { createVueI18nAdapter } from 'vuetify/locale/adapters/vue-i18n'
+import i18n from './i18n'
 
 // Vuetify
 import { createVuetify } from 'vuetify'
@@ -32,6 +35,7 @@ const themeDark = {
 }
 
 export default createVuetify({
+  locale: createVueI18nAdapter({ i18n, useI18n }),
   global: {
     ripple: false,
   },

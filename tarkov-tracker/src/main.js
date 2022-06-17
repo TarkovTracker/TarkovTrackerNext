@@ -1,20 +1,24 @@
 import { createApp } from 'vue'
-import App from './App.vue'
-import vuetify from './plugins/vuetify'
+
+// Router component
 import router from './router'
+
+// Web font loader
 import { loadFonts } from './plugins/webfontloader'
-import { createI18n } from 'vue-i18n'
-import { createPinia } from 'pinia'
 
-import messages from '@intlify/vite-plugin-vue-i18n/messages'
+// i18n
+import i18n from './plugins/i18n'
 
-const i18n = createI18n({
-  globalInjection: true,
-  locale: 'en',
-  messages
-})
+// Vuetify
+import vuetify from './plugins/vuetify'
 
-const pinia = createPinia()
+// Pinia
+import pinia from './plugins/pinia'
+
+// Base app component
+import App from './App.vue'
+
+
 
 loadFonts()
 
