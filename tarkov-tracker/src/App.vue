@@ -4,7 +4,7 @@
     <nav-drawer />
     <!-- Main View -->
     <v-main>
-      <v-card height="200px">{{ $t('hello_world')}} </v-card>
+      <router-view />
       <app-footer />
     </v-main>
     
