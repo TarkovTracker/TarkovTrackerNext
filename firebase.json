@@ -12,7 +12,7 @@
     ]
   },
   "hosting": {
-    "predeploy": "cd tarkov-tracker && npm run build",
+    "predeploy": "cd tarkov-tracker && npm ci && npm run build",
     "public": "tarkov-tracker/dist",
     "ignore": [
       "firebase.json",
