@@ -1,14 +1,13 @@
 <template>
   <v-navigation-drawer
+    v-model="appStore.drawerShow"
     theme="dark"
     image="/img/tarkov-tracker-sidebar-01.jpg"
-    width="260"
-    permanent
+    :rail="appStore.drawerRail"
   >
     <tracker-logo />
     <v-divider class="mx-3" />
     <v-list nav bg-color="transparent">
-      
       <v-list-item
         prepend-icon="mdi-email"
         title="Inbox"
@@ -28,17 +27,21 @@
     </v-list>
   </v-navigation-drawer>
 </template>
-<script>
-import { defineAsyncComponent } from 'vue'
-export default {
-  name: "NavDrawer",
+<script setup>
+//import { computed } from 'vue'
+import { defineAsyncComponent } from "vue";
+import { useAppStore } from "/src/stores/app.js";
+// import { useDisplay } from 'vuetify'
 
-  components: {
-    TrackerLogo: defineAsyncComponent(() =>
-      import("/src/components/drawer/TrackerLogo.vue")
-    ),
-  },
+const appStore = useAppStore();
 
-  data: () => ({}),
-};
+// const { mobile } = useDisplay()
+// const showDrawer = computed(() => {
+//   return mobile ? true :
+// })
+
+// Set up component loading
+const TrackerLogo = defineAsyncComponent(() =>
+  import("/src/components/drawer/TrackerLogo.vue")
+);
 </script>

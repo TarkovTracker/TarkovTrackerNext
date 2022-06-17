@@ -5,7 +5,8 @@ import { useStorage } from '@vueuse/core'
 export const useAppStore = defineStore('app', {
   state: () => ({
     // The initial state of the store
-    drawerRail: useStorage('app_drawerRail', false)
+    drawerRail: useStorage('app_drawerRail', false),
+    drawerShow: null
   }),
   getters: {
     // State getters

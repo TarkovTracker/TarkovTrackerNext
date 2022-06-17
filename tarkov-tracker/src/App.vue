@@ -2,31 +2,32 @@
   <v-app>
     <!-- Navigation Drawer -->
     <nav-drawer />
+
+    <!-- Application Bar-->
+    <app-bar />
+
     <!-- Main View -->
     <v-main>
+
       <router-view />
       <app-footer />
     </v-main>
-    
+
   </v-app>
 </template>
 
-<script>
+<script setup>
 import { defineAsyncComponent } from 'vue'
-export default {
-  name: "TarkovTracker",
 
-  components: {
-    NavDrawer: defineAsyncComponent(() =>
-      import("/src/components/NavDrawer.vue")
-    ),
-    AppFooter: defineAsyncComponent(() =>
-      import("/src/components/AppFooter.vue")
-    ),
-  },
-
-  data: () => ({}),
-};
+const NavDrawer = defineAsyncComponent(() =>
+  import("/src/components/layout/NavDrawer.vue")
+)
+const AppFooter = defineAsyncComponent(() =>
+  import("/src/components/layout/AppFooter.vue")
+)
+const AppBar = defineAsyncComponent(() =>
+  import("/src/components/layout/AppBar.vue")
+)
 </script>
 <style lang="scss">
 // Set the font family for the application to Share Tech Mono
