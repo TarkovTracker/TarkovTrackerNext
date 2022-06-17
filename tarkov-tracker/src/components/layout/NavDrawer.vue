@@ -9,6 +9,15 @@
     <v-divider class="mx-3 my-1" />
     <v-list nav bg-color="transparent" class="mx-auto">
       <drawer-item
+        icon="mdi-fingerprint"
+        locale-key="login"
+        to="/login"
+      >
+      </drawer-item>
+    </v-list>
+    <v-divider class="mx-3 my-1" />
+    <v-list nav bg-color="transparent" class="mx-auto">
+      <drawer-item
         icon="mdi-view-dashboard"
         locale-key="home"
         to="/"

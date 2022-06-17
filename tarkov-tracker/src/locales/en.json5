@@ -3,6 +3,7 @@
   hello_world: 'Hello World!',
   navigation_drawer: {
     home: 'Home',
-    settings: 'Settings'
+    settings: 'Settings',
+    login: 'Log In'
   }
 }
