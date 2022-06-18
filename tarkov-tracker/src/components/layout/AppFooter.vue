@@ -1,5 +1,5 @@
 <template>
-  <v-footer>
+  <v-footer color="transparent">
     <v-col class="text-center" cols="12" style="font-size: 0.7rem">
       <div>
         Game content and materials are trademarks and copyrights of Battlestate

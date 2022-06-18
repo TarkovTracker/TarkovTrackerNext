@@ -6,7 +6,7 @@
       @click.stop="changeNavigationDrawer"
     ></v-app-bar-nav-icon>
 
-    <v-toolbar-title>My Page</v-toolbar-title>
+    <v-toolbar-title>{{ $t(`page.${route.name}.title`)}}</v-toolbar-title>
   </v-app-bar>
 </template>
 
@@ -14,8 +14,11 @@
 import { computed } from 'vue'
 import { useAppStore } from "/src/stores/app.js";
 import { useDisplay } from 'vuetify'
+import { useRoute } from 'vue-router'
 
 const appStore = useAppStore();
+
+const route = useRoute()
 
 const navBarIcon = computed(() => {
   return appStore.drawerShow && appStore.drawerRail ? 'mdi-menu-open' : 'mdi-menu'

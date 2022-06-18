@@ -1,33 +1,15 @@
 <template>
+  <!-- The main app space. -->
   <v-app>
-    <!-- Navigation Drawer -->
-    <nav-drawer />
-
-    <!-- Application Bar-->
-    <app-bar />
-
-    <!-- Main View -->
-    <v-main>
-
+    <!-- Layout will be rendered as part of the router view below -->
+    <Transition name="fade" mode="out-in">
       <router-view />
-      <app-footer />
-    </v-main>
-
+    </Transition>
   </v-app>
 </template>
 
 <script setup>
-import { defineAsyncComponent } from 'vue'
-
-const NavDrawer = defineAsyncComponent(() =>
-  import("/src/components/layout/NavDrawer.vue")
-)
-const AppFooter = defineAsyncComponent(() =>
-  import("/src/components/layout/AppFooter.vue")
-)
-const AppBar = defineAsyncComponent(() =>
-  import("/src/components/layout/AppBar.vue")
-)
+// Setup script
 </script>
 <style lang="scss">
 // Set the font family for the application to Share Tech Mono
@@ -36,5 +18,15 @@ const AppBar = defineAsyncComponent(() =>
     font-family: 'Share Tech Mono', sans-serif !important;
   }
   font-family: 'Share Tech Mono', sans-serif !important;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 1s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
 }
 </style>
