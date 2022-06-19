@@ -7,6 +7,8 @@
         density="compact"
         :items="localeItems"
         :label="$t('app_bar.overflow_menu.language')"
+        variant="outlined"
+        hide-details
       ></v-select>
     </v-container>
   </v-card>
