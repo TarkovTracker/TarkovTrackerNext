@@ -8,6 +8,19 @@
 
 <script setup>
 // Setup script
+import { onMounted } from 'vue'
+import { useI18n } from 'vue-i18n'
+import { useAppStore } from "/src/stores/app.js";
+
+const appStore = useAppStore();
+const { locale } = useI18n({ useScope: 'global' })
+
+onMounted(() => {
+  // Check our locale settings
+  if (appStore.localeOverride) {
+    locale.value = appStore.localeOverride
+  }
+})
 </script>
 <style lang="scss">
 // Set the font family for the application to Share Tech Mono

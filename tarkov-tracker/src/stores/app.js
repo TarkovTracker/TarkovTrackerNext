@@ -6,7 +6,8 @@ export const useAppStore = defineStore('app', {
   state: () => ({
     // The initial state of the store
     drawerRail: useStorage('app_drawerRail', false),
-    drawerShow: null
+    drawerShow: null,
+    localeOverride: useStorage('app_localeOverride', null),
   }),
   getters: {
     // State getters

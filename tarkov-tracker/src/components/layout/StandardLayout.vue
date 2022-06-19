@@ -13,7 +13,7 @@
     >
       <div class="background-image">
         <!-- Main View -->
-        <v-main class="ma-8">
+        <v-main class="ma-3">
           <router-view />
         </v-main>
         <app-footer />
