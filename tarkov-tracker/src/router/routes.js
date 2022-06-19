@@ -9,7 +9,7 @@ const routes = [
         name: 'dashboard',
         path: '',
         alias: ['/', '/dashboard'],
-        meta: { background: null },
+        meta: { background: 'sunset' },
         component: () => import("/src/pages/TrackerDashboard.vue"),
       },
       {
