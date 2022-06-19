@@ -49,7 +49,7 @@ const DrawerItem = defineAsyncComponent(() =>
   import("/src/components/drawer/DrawerItem.vue")
 );
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 // Set up styles for rail and standard logo
 .v-logo-full {
   width: 85%;

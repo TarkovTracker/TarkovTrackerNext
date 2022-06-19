@@ -46,7 +46,7 @@ const AppBar = defineAsyncComponent(() =>
   import("/src/components/layout/AppBar.vue")
 )
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .background-image {
   background: rgba(255, 255, 255, 0.01); // Make sure this color has an opacity of less than 1
   backdrop-filter: blur(6px);

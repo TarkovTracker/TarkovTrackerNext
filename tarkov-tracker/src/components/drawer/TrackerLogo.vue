@@ -29,7 +29,7 @@ const logo = computed(() => {
 })
 
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 // Set up styles for rail and standard logo
 #app-logo-item > .v-list-item__overlay {
   opacity: 0 !important;

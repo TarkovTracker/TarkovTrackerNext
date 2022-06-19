@@ -46,7 +46,7 @@ const titleClass = computed(() => ({
 
 
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 // Set up styles for rail and standard item
 .v-drawer-item-full {
   margin-inline-start: 32px;
