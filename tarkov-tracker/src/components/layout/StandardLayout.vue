@@ -10,11 +10,13 @@
       min-height="100vh"
       cover
     >
-      <!-- Main View -->
-      <v-main class="ma-8">
-        <router-view />
+      <div class="background-image">
+        <!-- Main View -->
+        <v-main class="ma-8">
+          <router-view />
+        </v-main>
         <app-footer />
-      </v-main>
+      </div>
     </v-img>
 </template>
 
@@ -44,4 +46,13 @@ const AppBar = defineAsyncComponent(() =>
 )
 </script>
 <style lang="scss">
+.background-image {
+  background: rgba(255, 255, 255, 0.01); // Make sure this color has an opacity of less than 1
+  backdrop-filter: blur(6px);
+  height: 100vh;
+  width: 100%;
+  position:fixed;
+  top: 0;
+  left: 0;
+}
 </style>
