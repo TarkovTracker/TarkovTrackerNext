@@ -8,6 +8,7 @@
       :src='backgroundImage'
       gradient="to top, #00000075, #00000095"
       min-height="100vh"
+      alt="Background image"
       cover
     >
       <div class="background-image">

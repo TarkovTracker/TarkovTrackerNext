@@ -1,7 +1,7 @@
 <template>
   <v-footer class="px-0 pb-0 d-flex" color="transparent" app>
     <v-container class="text-center footer-background mx-0">
-      <v-row justify="center" style="font-size: 0.8rem">
+      <v-row justify="center" style="font-size: 12px">
         <v-col cols="12" md="4" align-self="center">
           <div>
             Report bugs/request features on <v-icon class="mr-1">mdi-discord</v-icon><a href="https://discord.gg/zeAP4Ng" target="_blank" class="info-link">Discord</a>
@@ -15,11 +15,11 @@
             
         </v-col>
         <v-col cols="12" md="4" align-self="center">
-          <v-img src="/img/UkraineDove.svg" class="custom-svg"/><a href="https://www.icrc.org/en/donate/ukraine" target="_blank" class="info-link">Support Ukraine</a> via the ICRC
+          <v-img src="/img/UkraineDove.svg" class="custom-svg" alt="Ukraine Dove"/><a href="https://www.icrc.org/en/donate/ukraine" target="_blank" class="info-link">Support Ukraine</a> via the ICRC
         </v-col>
       </v-row>
       <!-- Notice of Battlestate Games copy/trade notices -->
-      <v-container class="text-center mb-0 pb-0" style="font-size: 0.7rem">
+      <v-container class="text-center mb-0 pb-0" style="font-size: 12px">
         <div>
           Game content and materials are trademarks and copyrights of Battlestate Games and its licensors. All rights reserved.
         </div>

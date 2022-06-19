@@ -3,6 +3,7 @@
     <v-app-bar-nav-icon
       :icon="navBarIcon"
       variant="text"
+      aria-label="Toggle Menu Drawer"
       @click.stop="changeNavigationDrawer"
     ></v-app-bar-nav-icon>
 
