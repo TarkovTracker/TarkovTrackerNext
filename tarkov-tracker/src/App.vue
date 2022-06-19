@@ -2,9 +2,7 @@
   <!-- The main app space. -->
   <v-app>
     <!-- Layout will be rendered as part of the router view below -->
-    <Transition name="fade" mode="out-in">
-      <router-view />
-    </Transition>
+    <router-view />
   </v-app>
 </template>
 
@@ -20,15 +18,5 @@
   }
   font-family: 'Share Tech Mono', sans-serif !important;
   font-display: swap;
-}
-
-.fade-enter-active,
-.fade-leave-active {
-  transition: opacity 1s ease;
-}
-
-.fade-enter-from,
-.fade-leave-to {
-  opacity: 0;
 }
 </style>

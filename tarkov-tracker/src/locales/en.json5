@@ -17,6 +17,20 @@
       not_found_description: 'Sorry, that page could not be found!'
     }
   },
+  footer: {
+    call_to_action: {
+      discord_phrase: 'Report bugs/request features on {discord}',
+      github_phrase: 'Contribute to the open source project on {github}',
+      patreon_phrase: 'Support the project on {patreon}',
+      discord: 'Discord',
+      github: 'GitHub',
+      patreon: 'Patreon',
+    },
+    ukraine: {
+      support_link: 'Support Ukraine',
+      support_phrase: '{support_ukraine} via the ICRC'
+    }
+  },
   navigation_drawer: {
     home: 'Home',
     settings: 'Settings',

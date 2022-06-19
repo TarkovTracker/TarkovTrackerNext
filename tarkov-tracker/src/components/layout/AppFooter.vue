@@ -4,18 +4,41 @@
       <v-row justify="center" style="font-size: 12px">
         <v-col cols="12" md="4" align-self="center">
           <div>
-            Report bugs/request features on <v-icon class="mr-1">mdi-discord</v-icon><a href="https://discord.gg/zeAP4Ng" target="_blank" class="info-link">Discord</a>
+            <i18n-t keypath="footer.call_to_action.discord_phrase">
+              <template #discord>
+                <a href="https://discord.gg/zeAP4Ng" target="_blank" class="info-link">
+                  <v-icon class="mr-1">mdi-discord</v-icon>{{ $t('footer.call_to_action.discord') }}
+                </a>
+              </template>
+            </i18n-t>
           </div>
           <div class="mt-1">
-            Contribute to the open source project on <v-icon class="mr-1">mdi-github</v-icon><a href="https://github.com/TarkovTracker/TarkovTracker" target="_blank" class="info-link">GitHub</a>
+             <i18n-t keypath="footer.call_to_action.github_phrase">
+              <template #github>
+                <a href="https://github.com/TarkovTracker/TarkovTracker" target="_blank" class="info-link">
+                  <v-icon class="mr-1">mdi-github</v-icon>{{ $t('footer.call_to_action.github') }}
+                </a>
+              </template>
+            </i18n-t>
           </div>
           <div class="mt-1">
-            Support the project on <v-icon class="mr-1">mdi-patreon</v-icon><a href="https://www.patreon.com/apologist" target="_blank" class="info-link">Patreon</a>
+            <i18n-t keypath="footer.call_to_action.patreon_phrase">
+              <template #patreon>
+                <a href="https://www.patreon.com/apologist" target="_blank" class="info-link">
+                  <v-icon class="mr-1">mdi-patreon</v-icon>{{ $t('footer.call_to_action.patreon') }}
+                </a>
+              </template>
+            </i18n-t>
           </div>
             
         </v-col>
         <v-col cols="12" md="4" align-self="center">
-          <v-img src="/img/UkraineDove.svg" class="custom-svg" alt="Ukraine Dove"/><a href="https://www.icrc.org/en/donate/ukraine" target="_blank" class="info-link">Support Ukraine</a> via the ICRC
+          <v-img src="/img/UkraineDove.svg" class="custom-svg" alt="Ukraine Dove"/>
+          <i18n-t keypath="footer.ukraine.support_phrase">
+            <template #support_ukraine>
+              <a href="https://www.icrc.org/en/donate/ukraine" target="_blank" class="info-link">{{ $t('footer.ukraine.support_link') }}</a>
+            </template>
+          </i18n-t>
         </v-col>
       </v-row>
       <!-- Notice of Battlestate Games copy/trade notices -->
