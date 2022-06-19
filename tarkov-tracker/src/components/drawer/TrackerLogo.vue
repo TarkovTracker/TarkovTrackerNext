@@ -5,7 +5,7 @@
       style="height: auto; margin: 20px 0"
     >
       <v-img
-        src="/img/tarkovtrackerlogo-light.png"
+        :src="logo"
         lazy-src="/favicon-32x32.png"
       />
     </v-list-item-avatar>
@@ -18,10 +18,15 @@
 </template>
 
 <script setup>
+import { computed } from 'vue'
 import { useAppStore } from "/src/stores/app.js";
 import { useDisplay } from 'vuetify'
 const { mdAndDown } = useDisplay()
 const appStore = useAppStore();
+
+const logo = computed(() => {
+  return appStore.drawerUseRail(mdAndDown.value) ? '/img/tarkovtrackerlogo-mini.png' : '/img/tarkovtrackerlogo-light.png'
+})
 
 </script>
 <style lang="scss">
