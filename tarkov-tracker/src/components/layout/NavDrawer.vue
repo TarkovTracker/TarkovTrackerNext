@@ -2,7 +2,7 @@
   <v-navigation-drawer
     v-model="appStore.drawerShow"
     theme="dark"
-    image="/img/tarkov-tracker-sidebar-01.jpg"
+    image="/img/sidebar-background.webp"
     :rail="appStore.drawerUseRail(mdAndDown)"
   >
     <tracker-logo />

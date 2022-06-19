@@ -30,7 +30,7 @@ const route = useRoute()
 
 const backgroundImage = computed(() => {
   if (route.meta.background) {
-    return `/img/background/${route.meta.background}.jpg`
+    return `/img/background/${route.meta.background}.webp`
   }else{
     return ''
   }
