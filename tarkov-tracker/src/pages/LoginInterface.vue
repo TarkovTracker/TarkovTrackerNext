@@ -50,4 +50,13 @@ const uiConfig = {
 }
 </script>
 <style lang="scss" scoped>
+:deep(.firebaseui-tos) {
+  text-decoration: none;
+  color: #ffffff;
+}
+
+:deep(.firebaseui-link) {
+  text-decoration: none;
+  color: rgba(var(--v-theme-info), 1) !important;
+}
 </style>
