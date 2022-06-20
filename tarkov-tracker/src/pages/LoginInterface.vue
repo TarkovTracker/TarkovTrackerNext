@@ -15,7 +15,7 @@
 <script setup>
 import { onMounted } from 'vue'
 import * as firebaseui from 'firebaseui'
-import { firebase, fireapp } from '../plugins/firebase.js'
+import { firebase, fireapp } from '@/plugins/firebase'
 
 onMounted(() => {
   // Initialize the FirebaseUI Widget using Firebase.

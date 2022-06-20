@@ -8,6 +8,11 @@ import firebasePlugin from 'vite-plugin-firebase';
 
 // https://vitejs.dev/config/
 export default defineConfig({
+	resolve:{
+    alias:{
+      '@' : path.resolve(__dirname, './src')
+    },
+  },
   plugins: [
 		vue(),
 		eslintPlugin(),

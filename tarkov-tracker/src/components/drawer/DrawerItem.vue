@@ -5,14 +5,19 @@
   >
     <v-icon :icon="props.icon"/>
     <v-list-item-title v-if="!appStore.drawerUseRail(mdAndDown)" :class="titleClass">
+    <template v-if="props.localeKey">
       {{ $t(`navigation_drawer.${props.localeKey}`) }}
+    </template>
+    <template v-else-if="props.text">
+      {{ props.text }}
+    </template>
     </v-list-item-title>
   </v-list-item>
 </template>
 
 <script setup>
 import { computed } from 'vue'
-import { useAppStore } from "/src/stores/app.js";
+import { useAppStore } from "@/stores/app.js";
 import { useDisplay } from 'vuetify'
 const { mdAndDown } = useDisplay()
 
@@ -24,11 +29,18 @@ const props = defineProps({
   },
   localeKey: {
     type: String,
-    required: true,
+    required: false,
+    default: null
+  },
+  text: {
+    type: String,
+    required: false,
+    default: null
   },
   to: {
     type: String,
-    required: true,
+    required: false,
+    default: null,
   },
 });
 

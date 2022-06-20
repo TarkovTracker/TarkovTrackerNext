@@ -16,7 +16,7 @@
 <script setup>
 import { computed } from 'vue'
 import { useI18n } from 'vue-i18n'
-import { useAppStore } from "/src/stores/app.js";
+import { useAppStore } from "@/stores/app.js";
 
 const appStore = useAppStore();
 const { availableLocales, locale } = useI18n({ useScope: 'global' })

@@ -19,7 +19,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { useAppStore } from "/src/stores/app.js";
+import { useAppStore } from "@/stores/app.js";
 import { useDisplay } from 'vuetify'
 const { mdAndDown } = useDisplay()
 const appStore = useAppStore();

@@ -37,13 +37,13 @@ const backgroundImage = computed(() => {
 })
 
 const NavDrawer = defineAsyncComponent(() =>
-  import("/src/components/layout/NavDrawer.vue")
+  import("@/components/layout/NavDrawer.vue")
 )
 const AppFooter = defineAsyncComponent(() =>
-  import("/src/components/layout/AppFooter.vue")
+  import("@/components/layout/AppFooter.vue")
 )
 const AppBar = defineAsyncComponent(() =>
-  import("/src/components/layout/AppBar.vue")
+  import("@/components/layout/AppBar.vue")
 )
 </script>
 <style lang="scss" scoped>
