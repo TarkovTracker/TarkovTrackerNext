@@ -13,7 +13,7 @@
     >
       <div class="background-image">
         <!-- Main View -->
-        <v-main class="ma-3">
+        <v-main class="ma-3 fill-height">
           <router-view />
         </v-main>
         <app-footer />

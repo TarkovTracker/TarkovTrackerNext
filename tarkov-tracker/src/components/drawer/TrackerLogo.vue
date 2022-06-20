@@ -9,11 +9,11 @@
         lazy-src="/favicon-32x32.png"
       />
     </v-list-item-avatar>
-    <v-list-item-content v-if="!appStore.drawerUseRail(mdAndDown)">
+    <div v-if="!appStore.drawerUseRail(mdAndDown)">
       <div class="text-h5 text-center mt-2 font-weight-medium">
         {{ $t('site_name') }}
       </div>
-    </v-list-item-content>
+    </div>
   </v-list-item>
 </template>
 
@@ -31,16 +31,19 @@ const logo = computed(() => {
 </script>
 <style lang="scss" scoped>
 // Set up styles for rail and standard logo
-#app-logo-item > .v-list-item__overlay {
+// We set global for this because we need to inject into multiple layers of components
+:global(#app-logo-item > .v-list-item__overlay) {
   opacity: 0 !important;
 }
 
-.v-logo-full {
+// We set deep for this so that it is carried down into child componets (vuetify components)
+:deep(.v-logo-full) {
   width: 85%;
   min-width: 80%;
 }
 
-.v-logo-rail {
+// We set deep for this so that it is carried down into child componets (vuetify components)
+:deep(.v-logo-rail) {
   width: 26px;
 }
 </style>

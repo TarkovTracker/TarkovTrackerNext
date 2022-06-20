@@ -30,7 +30,7 @@ const routes = [
         name: 'login',
         path: "/login",
         meta: { background: 'checkpoint' },
-        component: () => import("/src/pages/TrackerDashboard.vue"),
+        component: () => import("/src/pages/LoginInterface.vue"),
       },
     ]
   },
