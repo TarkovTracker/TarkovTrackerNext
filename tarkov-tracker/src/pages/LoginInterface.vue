@@ -7,7 +7,9 @@
       class="fill-height"
     >
       <v-col cols="12">
-        <div id="firebaseui-auth-container"></div>
+        
+        <div v-if="fireuser?.uid" class="text-center">You are already signed in!</div>
+        <div v-show="fireuser?.uid == null" id="firebaseui-auth-container"></div>
       </v-col>
     </v-row>
   </v-container>
@@ -15,12 +17,14 @@
 <script setup>
 import { onMounted } from 'vue'
 import * as firebaseui from 'firebaseui'
-import { firebase, fireapp } from '@/plugins/firebase'
+import { firebase, fireapp, fireuser } from '@/plugins/firebase'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(fireapp.auth())
 
 onMounted(() => {
   // Initialize the FirebaseUI Widget using Firebase.
   // The start method will wait until the DOM is loaded.
-  const ui = firebaseui.auth.AuthUI.getInstance() || new firebaseui.auth.AuthUI(fireapp.auth())
   ui.start('#firebaseui-auth-container', uiConfig)
 })
 // FirebaseUI config.
@@ -30,7 +34,8 @@ const uiConfig = {
       // User successfully signed in.
       // Return type determines whether we continue the redirect automatically
       // or whether we leave that to developer to handle.
-      return true
+      router.push('/')
+      return false
     },
     uiShown: function () {
       // The widget is rendered.
