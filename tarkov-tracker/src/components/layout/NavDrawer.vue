@@ -33,4 +33,8 @@ const DrawerAccount = defineAsyncComponent(() =>
 );
 </script>
 <style lang="scss" scoped>
+:deep(.v-list-group__items .v-list-item) {
+  padding-inline-start: 0 !important;
+  padding-left: 8px !important;
+}
 </style>

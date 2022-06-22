@@ -42,6 +42,7 @@
   navigation_drawer: {
     home: 'Home',
     settings: 'Settings',
-    login: 'Log In'
+    login: 'Log In',
+    logout: 'Log Out'
   }
 }
