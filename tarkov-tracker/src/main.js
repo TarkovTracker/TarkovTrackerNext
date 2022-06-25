@@ -1,5 +1,7 @@
 import { createApp } from 'vue'
 
+import { DefaultApolloClient } from '@vue/apollo-composable'
+
 // Router component
 import router from './router'
 
@@ -15,6 +17,12 @@ import vuetify from './plugins/vuetify'
 // Pinia
 import pinia from './plugins/pinia'
 
+// Apollo GraphQL client
+import apolloClient from './plugins/apollo'
+
+// tarkovdata
+import tarkovdata from './plugins/tarkovdata'
+
 // Base app component
 import App from './App.vue'
 
@@ -25,4 +33,6 @@ createApp(App)
   .use(router)
   .use(vuetify)
   .use(i18n)
+  .use(tarkovdata)
+  .provide(DefaultApolloClient, apolloClient)
   .mount('#app')

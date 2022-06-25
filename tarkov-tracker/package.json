@@ -11,10 +11,14 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "@apollo/client": "^3.6.9",
     "@mdi/font": "5.9.55",
+    "@vue/apollo-composable": "^4.0.0-alpha.18",
     "@vueuse/core": "^8.7.3",
     "firebase": "^9.8.3",
     "firebaseui": "^6.0.1",
+    "graphql": "^16.5.0",
+    "graphql-tag": "^2.12.6",
     "pinia": "^2.0.14",
     "roboto-fontface": "*",
     "vue": "^3.2.25",
