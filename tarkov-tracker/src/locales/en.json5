@@ -12,7 +12,21 @@
   },
   page: {
     dashboard: {
-      title: 'Dashboard'
+      title: 'Dashboard',
+      stats: {
+        allQuests: {
+          stat: 'Quests Completed',
+          details: 'The number of quests you have completed.'
+        },
+        questItems: {
+          stat: 'Quest Items',
+          details: 'Includes FIR and non-FIR collection items.'
+        },
+        allObjectives: {
+          stat: 'Quest Objectives',
+          details: 'The total unique objectives within quests.'
+        }
+      }
     },
     settings: {
       title: 'Settings'

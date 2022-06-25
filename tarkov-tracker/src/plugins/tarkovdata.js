@@ -1,18 +1,26 @@
 import { useQuery, provideApolloClient } from "@vue/apollo-composable";
+import { useTarkovStore } from "@/stores/tarkov";
+import { computed } from "vue";
 import apolloClient from './apollo'
 import gql from "graphql-tag";
 
 // eslint-disable-next-line no-undef
 provideApolloClient(apolloClient)
 
-const tarkovDataPlugin = {
+const TarkovDataPlugin = {
   install(app) {
-    // configure the app
-    app.provide('tarkovtasks', getTasks())
+    const tasks = computed(() => {return getTasks().value?.tasks})
+    const objectives = computed(() => {
+      return tasks.value?.reduce((acc, task) => acc.concat(task.objectives), [])
+    })
+    const tarkovStore = useTarkovStore()
+    console.log(tarkovStore.storeSelected)
+    // Provide data from tarkovdata
+    app.provide('tarkov-data', { tasks, objectives })
   }
 }
 
-export default tarkovDataPlugin
+export { TarkovDataPlugin }
 
 function getTasks() {
   const { result } = useQuery(gql`

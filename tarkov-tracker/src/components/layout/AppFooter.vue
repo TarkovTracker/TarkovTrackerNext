@@ -72,7 +72,7 @@
 }
 
 a:link, a:active, a:visited {
-  color: rgba(var(--v-theme-info), 1)
+  color: rgba(var(--v-theme-link), 1)
 }
 
 .info-link {
