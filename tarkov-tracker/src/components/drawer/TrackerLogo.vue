@@ -44,6 +44,6 @@ const logo = computed(() => {
 
 // We set deep for this so that it is carried down into child componets (vuetify components)
 :deep(.v-logo-rail) {
-  width: 26px;
+  width: 32x;
 }
 </style>
