@@ -4,7 +4,8 @@ import { defineStore } from 'pinia'
 export const useLocalTarkovStore = defineStore('localTarkov', {
   state: () => ({
     // The initial state of the store
-    name: 'localTarkov'
+    name: 'localTarkov',
+    level: 1,
   }),
   getters: {
     // State getters

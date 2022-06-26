@@ -4,7 +4,8 @@ import { defineStore } from 'pinia'
 export const useRemoteTarkovStore = defineStore('remoteTarkov', {
   state: () => ({
     // The initial state of the store
-    name: 'remoteTarkov'
+    name: 'remoteTarkov',
+    level: 1,
   }),
   getters: {
     // State getters

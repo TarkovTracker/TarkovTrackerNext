@@ -9,6 +9,8 @@
     <v-divider class="mx-3 my-1" />
     <drawer-account />
     <v-divider class="mx-3 my-1" />
+    <drawer-level />
+    <v-divider class="mx-3 my-1" />
     <drawer-links />
   </v-navigation-drawer>
 </template>
@@ -30,6 +32,9 @@ const DrawerLinks = defineAsyncComponent(() =>
 );
 const DrawerAccount = defineAsyncComponent(() =>
   import("@/components/drawer/DrawerAccount.vue")
+);
+const DrawerLevel = defineAsyncComponent(() =>
+  import("@/components/drawer/DrawerLevel.vue")
 );
 </script>
 <style lang="scss" scoped>

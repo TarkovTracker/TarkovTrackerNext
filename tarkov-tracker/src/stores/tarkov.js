@@ -14,14 +14,24 @@ const whichStore = computed(() => {
 export const useTarkovStore = defineStore('tarkov', {
   state: () => ({
     // The initial state of the store
+    level: 1,
   }),
   getters: {
     // State getters
     storeSelected() {
       return whichStore.value.name
+    },
+    playerLevel() {
+      return whichStore.value.level
     }
   },
   actions: {
     // State mutations or setters
+    incrementLevel() {
+      whichStore.value.level++
+    },
+    decrementLevel() {
+      whichStore.value.level--
+    }
   }
 })

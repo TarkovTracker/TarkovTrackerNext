@@ -1,6 +1,6 @@
 <template>
-  <v-sheet rounded class="elevation-4">
-    <v-avatar class="ml-2 mb-2 mt-n10 elevation-4 float-left" color="accent" size="80">
+  <v-sheet rounded class="elevation-4 mt-2">
+    <v-avatar class="ml-2 mb-2 mt-n6 elevation-4 float-left" color="accent" size="80">
       <v-icon size="64px" color="secondary">{{ props.icon }}</v-icon>
     </v-avatar>
     <div class="text-subtitle text-right pa-2 pb-0">
