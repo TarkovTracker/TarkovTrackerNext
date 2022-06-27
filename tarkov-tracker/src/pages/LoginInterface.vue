@@ -55,6 +55,8 @@ const uiConfig = {
 }
 </script>
 <style lang="scss" scoped>
+@import 'https://www.gstatic.com/firebasejs/ui/6.0.1/firebase-ui-auth.css';
+
 :deep(.firebaseui-tos) {
   text-decoration: none;
   color: #ffffff;
@@ -62,6 +64,6 @@ const uiConfig = {
 
 :deep(.firebaseui-link) {
   text-decoration: none;
-  color: rgba(var(--v-theme-info), 1) !important;
+  color: rgba(var(--v-theme-link), 1) !important;
 }
 </style>

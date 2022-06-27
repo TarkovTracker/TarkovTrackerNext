@@ -5,7 +5,6 @@ import { useStorage } from '@vueuse/core'
 export const useLocalTarkovStore = defineStore('localTarkov', {
   state: () => ({
     // The initial state of the store
-    name: 'localTarkov',
     level: useStorage('tarkov_level', 1),
   }),
   getters: {

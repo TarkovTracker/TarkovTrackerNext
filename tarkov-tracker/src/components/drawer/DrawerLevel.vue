@@ -9,7 +9,7 @@
     </span>
     <span>
       <div style="font-size:.7em" class="text-center mb-1">
-        Level
+        {{ $t('navigation_drawer.level') }}
       </div>
       <div class="text-center">
         <h1 style="font-size:2.5em; line-height:0.8em;">

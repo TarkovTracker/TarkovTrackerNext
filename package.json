@@ -1,0 +1,5 @@
+{
+  "dependencies": {
+    "pinia-firestore": "^0.2.1"
+  }
+}

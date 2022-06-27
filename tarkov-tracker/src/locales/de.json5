@@ -9,7 +9,21 @@
   },
   page: {
     dashboard: {
-      title: 'Armaturenbrett'
+      title: 'Armaturenbrett',
+      stats: {
+        allQuests: {
+          stat: 'Erledigte Quests',
+          details: 'Die Anzahl der Quests, die Sie abgeschlossen haben.'
+        },
+        questItems: {
+          stat: 'Quest-Gegenstände',
+          details: 'Beinhaltet FIR- und Nicht-FIR-Sammlungselemente.'
+        },
+        allObjectives: {
+          stat: 'Quest-Ziele',
+          details: 'Die Gesamtheit der einzigartigen Ziele innerhalb der Quests.'
+        }
+      }
     },
     settings: {
       title: 'Einstellungen'
@@ -39,6 +53,7 @@
   navigation_drawer: {
     home: 'Heim',
     settings: 'Einstellungen',
-    login: 'Einloggen'
+    login: 'Einloggen',
+    level: 'Ebene',
   }
 }

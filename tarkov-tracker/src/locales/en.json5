@@ -57,6 +57,7 @@
     home: 'Home',
     settings: 'Settings',
     login: 'Log In',
-    logout: 'Log Out'
+    logout: 'Log Out',
+    level: 'Level',
   }
 }

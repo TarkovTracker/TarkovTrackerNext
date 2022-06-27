@@ -1,5 +1,4 @@
 import { useQuery, provideApolloClient } from "@vue/apollo-composable";
-import { useTarkovStore } from "@/stores/tarkov";
 import { computed } from "vue";
 import apolloClient from "./apollo";
 import gql from "graphql-tag";
@@ -52,8 +51,6 @@ const TarkovDataPlugin = {
       return taskError || mapError || traderError || levelError;
     });
 
-    const tarkovStore = useTarkovStore();
-    console.log(tarkovStore.storeSelected);
     // Provide data from tarkovdata
     app.provide("tarkov-data", { tasks, objectives, maps, levels, traders, dataLoading, dataError });
   },
