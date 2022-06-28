@@ -26,8 +26,7 @@ const whichStore = computed(() => {
 // The 'tarkov' Pinia Store. Used to keep tarkov progress state
 export const useTarkovStore = defineStore('tarkov', {
   state: () => ({
-    // The initial state of the store
-    level: 1,
+    // You should not be using the state here directly.
   }),
   getters: {
     // State getters
@@ -42,6 +41,7 @@ export const useTarkovStore = defineStore('tarkov', {
     // State mutations or setters
     incrementLevel() {
       whichStore.value.level++
+      
     },
     decrementLevel() {
       whichStore.value.level--

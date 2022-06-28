@@ -17,9 +17,15 @@ export function PiniaFirestore(context) {
       context.options.firestore.unsubscribe = onSnapshot(
         parseDoc(context.options?.firestore?.document), 
         (snapshot) => {
+          // Create a lock on the store to not trigger re-writes
+          context.options.firestore.lock = true
+
           // Update the store with the snapshot
           const data = snapshot.data() || {}
           context.store.$state = data
+
+          // Release the lock on the store
+          context.options.firestore.lock = false
       },  () => {
         // An error occurred trying to obtain the snapshot (or getting the latest)
       })
@@ -37,9 +43,11 @@ export function PiniaFirestore(context) {
     }, context.options?.firestore?.debouncems || 250)
 
     // eslint-disable-next-line no-unused-vars
-    context.store.$subscribe((mutation, state) => {
+    context.store.$subscribe(function (mutation, state) {
       // Update the related document when the state changes
-      uploadDocument(state)
+      if (!context.options.firestore.lock) {
+        uploadDocument(state)
+      }
     })
   }
 }
