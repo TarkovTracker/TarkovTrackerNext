@@ -16,7 +16,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const fireapp = reactive(firebase.initializeApp(firebaseConfig));
+const fireapp = firebase.initializeApp(firebaseConfig);
 const analytics = getAnalytics(fireapp);
 
 // Set up a reactive object for using the user object from auth
@@ -24,6 +24,7 @@ const fireuser = reactive({})
 fireapp.auth().onAuthStateChanged(function(user) {
   if (user) {
     Object.assign(fireuser, user?._delegate)
+    fireuser.loggedIn = true
   } else {
     Object.keys(fireuser).forEach((key) => {
       delete fireuser[key]

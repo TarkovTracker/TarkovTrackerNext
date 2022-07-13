@@ -1,26 +1,29 @@
 import { defineStore } from 'pinia'
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 import { fireuser } from '@/plugins/firebase'
 import { useLocalTarkovStore } from '@/stores/localTarkov'
 import { useRemoteTarkovStore } from '@/stores/remoteTarkov'
 
+// Watch for fireuser state changing and bind/unbind the remoteTarkov store
+watch(
+  () => fireuser.loggedIn,
+  (newValue) => {
+    const remoteTarkovStore = useRemoteTarkovStore()
+    if(newValue) {
+      remoteTarkovStore.firebind()
+    }else{
+      remoteTarkovStore.fireunbind()
+    }
+  },
+  // Immediately trigger the watch
+  { immediate: true }
+)
+
+// Select the store to utilize based on the current user's state
 const whichStore = computed(() => {
   const remoteTarkovStore = useRemoteTarkovStore()
   const localTarkovStore = useLocalTarkovStore()
-  return fireuser?.uid ? remoteTarkovStore : localTarkovStore
-},
-{
-  onTrigger() {
-    // When whichStore is mutated
-    const remoteTarkovStore = useRemoteTarkovStore()
-    if(fireuser?.uid) {
-      // We must be switching to the remote store, bind it
-      remoteTarkovStore.firebind()
-    }else{
-      // We must be switching to local store, unbind the remote
-      remoteTarkovStore.fireunbind()
-    }
-  }
+  return fireuser.loggedIn ? remoteTarkovStore : localTarkovStore
 })
 
 // The 'tarkov' Pinia Store. Used to keep tarkov progress state
