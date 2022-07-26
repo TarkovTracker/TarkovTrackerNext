@@ -1,8 +1,63 @@
 import { defineStore } from 'pinia'
 import { computed, watch } from 'vue'
 import { fireuser } from '@/plugins/firebase'
-import { useLocalTarkovStore } from '@/stores/localTarkov'
-import { useRemoteTarkovStore } from '@/stores/remoteTarkov'
+
+const defaultState = {
+  level: 1,
+  gameEdition: 1,
+}
+
+let getters = {
+  // State getters
+  playerLevel(state) {
+    return state.level
+  },
+
+  gameEdition(state) {
+    return state.gameEdition
+  }
+}
+
+let actions = {
+  // State mutations or setters
+  incrementLevel() {
+    this.level++
+    
+  },
+  
+  decrementLevel() {
+    this.level--
+  },
+
+  setGameEdition(edition) {
+    this.gameEdition = edition
+  }
+}
+
+const useRemoteTarkovStore = defineStore('remoteTarkov', {
+  // Use the shared default state
+  state: () => (JSON.parse(JSON.stringify(defaultState))),
+  getters: getters,
+  actions: actions,
+  firestore: {
+    // {uid} will be replaced by the current auth'ed user's uid on bind 
+    document: 'progress/{uid}',
+    // The number of miliseconds to debounce changes to the firestore document
+    debouncems: 250,
+  }
+})
+
+const useLocalTarkovStore = defineStore('localTarkov', {
+  // Use the shared default state
+  state: () => (JSON.parse(JSON.stringify(defaultState))),
+  // Create a new copy of the getters and actions
+  getters: getters,
+  actions: actions,
+  persist: {
+    // Persist the local version in localstore under this key
+    key: 'localTarkov',
+  }
+})
 
 // Watch for fireuser state changing and bind/unbind the remoteTarkov store
 watch(
@@ -10,8 +65,10 @@ watch(
   (newValue) => {
     const remoteTarkovStore = useRemoteTarkovStore()
     if(newValue) {
+      console.log("Bound remoteTarkov store")
       remoteTarkovStore.firebind()
     }else{
+      console.log("Unbound remoteTarkov store")
       remoteTarkovStore.fireunbind()
     }
   },
@@ -26,28 +83,6 @@ const whichStore = computed(() => {
   return fireuser.loggedIn ? remoteTarkovStore : localTarkovStore
 })
 
-// The 'tarkov' Pinia Store. Used to keep tarkov progress state
-export const useTarkovStore = defineStore('tarkov', {
-  state: () => ({
-    // You should not be using the state here directly.
-  }),
-  getters: {
-    // State getters
-    storeSelected() {
-      return whichStore.value.name
-    },
-    playerLevel() {
-      return whichStore.value.level
-    }
-  },
-  actions: {
-    // State mutations or setters
-    incrementLevel() {
-      whichStore.value.level++
-      
-    },
-    decrementLevel() {
-      whichStore.value.level--
-    }
-  }
-})
+
+// Export the selected store as a function which looks like normal pinia usage
+export function useTarkovStore() {return whichStore}

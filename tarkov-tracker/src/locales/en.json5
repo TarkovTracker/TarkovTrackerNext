@@ -29,7 +29,19 @@
       }
     },
     settings: {
-      title: 'Settings'
+      title: 'Settings',
+      card: {
+        reset: {
+          title: 'Reset',
+          description: 'Reset all progression data to default.',
+          button: 'Reset my progress'
+        },
+        gameedition: {
+          title: 'Game Edition',
+          description: 'Select the game edition you are playing. Additional data may be computed from this information (e.g. trader reputation, stash level).',
+          select: 'Select game edition'
+        },
+      }
     },
     login: {
       title: 'Login'

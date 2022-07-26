@@ -45,7 +45,7 @@ export function PiniaFirestore(context) {
     // eslint-disable-next-line no-unused-vars
     context.store.$subscribe(function (mutation, state) {
       // Update the related document when the state changes
-      if (!context.options.firestore.lock) {
+      if (typeof context.options.firestore.unsubscribe != 'undefined' && !context.options.firestore.lock) {
         uploadDocument(state)
       }
     })

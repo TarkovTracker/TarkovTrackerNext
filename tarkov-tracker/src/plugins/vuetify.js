@@ -15,7 +15,7 @@ const colorTheme = {
   accent: '#242F35',
   info: '#181817',
   success: '#242F35',
-  warning: '#242F35',
+  warning: '#391111',
   error: '#FF0000',
   failure: '#540000',
 }

@@ -20,7 +20,7 @@ const routes = [
         name: 'settings',
         path: "/settings",
         meta: { background: 'gas' },
-        component: () => import("@/pages/TrackerDashboard.vue"),
+        component: () => import("@/pages/TrackerSettings.vue"),
       },
       { 
         path: '/:pathMatch(.*)*', 
