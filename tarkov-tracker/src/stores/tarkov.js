@@ -13,7 +13,7 @@ let getters = {
     return state.level
   },
 
-  gameEdition(state) {
+  getGameEdition(state) {
     return state.gameEdition
   }
 }

@@ -95,7 +95,7 @@ const gameEditions = [
 
 const currentGameEdition = computed({
   get() {
-    return tarkovStore.value.gameEdition
+    return tarkovStore.value.getGameEdition
   },
   // setter
   set(newValue) {
