@@ -41,6 +41,12 @@
           description: 'Select the game edition you are playing. Additional data may be computed from this information (e.g. trader reputation, stash level).',
           select: 'Select game edition'
         },
+        streamermode: {
+          title: 'Streamer Mode',
+          description: 'Hides your team invite codes from view, so you can show off your progress without letting people join your live team.',
+          modeOn: 'On',
+          modeOff: 'Off'
+        }
       }
     },
     login: {

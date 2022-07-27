@@ -5,6 +5,7 @@ import { fireuser } from '@/plugins/firebase'
 const defaultState = {
   level: 1,
   gameEdition: 1,
+  streamerMode: false,
 }
 
 let getters = {
@@ -15,6 +16,10 @@ let getters = {
 
   getGameEdition(state) {
     return state.gameEdition
+  },
+
+  getStreamerMode(state) {
+    return state.streamerMode
   }
 }
 
@@ -31,6 +36,10 @@ let actions = {
 
   setGameEdition(edition) {
     this.gameEdition = edition
+  },
+
+  setStreamerMode(mode) {
+    this.streamerMode = mode
   }
 }
 
