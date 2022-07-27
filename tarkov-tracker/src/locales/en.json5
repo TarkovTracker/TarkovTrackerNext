@@ -77,5 +77,6 @@
     login: 'Log In',
     logout: 'Log Out',
     level: 'Level',
+    team: 'Manage Team'
   }
 }

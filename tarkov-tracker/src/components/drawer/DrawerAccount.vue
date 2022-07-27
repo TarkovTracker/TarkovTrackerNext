@@ -1,36 +1,38 @@
 <template>
-<v-list nav bg-color="transparent" class="mx-auto">
-  <template v-if="fireuser.uid != null">
-    <v-list-group>
-      <template #activator="{ props }">
-        <template v-if="appStore.drawerUseRail(mdAndDown)">
-          <v-avatar v-bind="props" class="mx-auto" :class="appStore.drawerUseRail(mdAndDown) ? 'd-flex fake-link' : ''">
-            <v-img :src="fireuser.photoURL" />
-          </v-avatar>
+  <v-list nav bg-color="transparent" class="mx-auto">
+    <template v-if="fireuser.uid != null">
+      <v-list-group>
+        <template #activator="{ props }">
+          <template v-if="appStore.drawerUseRail(mdAndDown)">
+            <v-avatar 
+              v-bind="props"
+              class="mx-auto"
+              :class="appStore.drawerUseRail(mdAndDown) ? 'd-flex fake-link' : ''">
+              <v-img :src="fireuser.photoURL" />
+            </v-avatar>
+          </template>
+          <template v-else>
+            <v-list-item v-bind="props" :title="fireuser.displayName" :prepend-avatar="fireuser.photoURL"></v-list-item>
+          </template>
         </template>
-        <template v-else>
-          <v-list-item v-bind="props" :title="fireuser.displayName" :prepend-avatar="fireuser.photoURL" ></v-list-item>
+        <drawer-item icon="mdi-lock" locale-key="logout" @click.stop="logout" />
+      </v-list-group>
+      <v-dialog v-model="teamDialog">
+        <template #activator="{ props }">
+          <drawer-item icon="mdi-account-group" locale-key="team" v-bind="props" />
         </template>
-      </template>
-      <drawer-item
-        icon="mdi-lock"
-        locale-key="logout"
-        @click.stop="logout"
-      />
-    </v-list-group>
-  </template>
-  <template v-else>
-    <drawer-item
-      icon="mdi-fingerprint"
-      locale-key="login"
-      to="/login"
-    />
-  </template>
-</v-list>
+        <team-settings>
+        </team-settings>
+      </v-dialog>
+    </template>
+    <template v-else>
+      <drawer-item icon="mdi-fingerprint" locale-key="login" to="/login" />
+    </template>
+  </v-list>
 </template>
 <script setup>
 import { fireapp, fireuser } from '@/plugins/firebase'
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, ref } from "vue";
 import { useAppStore } from "@/stores/app.js";
 import { useDisplay } from 'vuetify'
 const { mdAndDown } = useDisplay()
@@ -40,9 +42,16 @@ const DrawerItem = defineAsyncComponent(() =>
   import("@/components/drawer/DrawerItem.vue")
 );
 
+const TeamSettings = defineAsyncComponent(() =>
+  import("@/components/TeamSettings.vue")
+);
+
 function logout() {
   fireapp.auth().signOut()
 }
+
+const teamDialog = ref(false)
+
 </script>
 <style lang="scss" scoped>
 .fake-link {
