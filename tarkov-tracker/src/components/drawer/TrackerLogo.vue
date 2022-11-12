@@ -1,5 +1,5 @@
 <template>
-  <v-list-item id="app-logo-item" class="flex flex-column" :ripple="false" to="/" >
+  <v-list-item id="app-logo-item" class="flex flex-column mt-1" :ripple="false" to="/" >
     <v-list-item-avatar
       :class="appStore.drawerUseRail(mdAndDown) ? 'v-logo-rail' : 'v-logo-full'"
       style="height: auto; margin: 20px 0"

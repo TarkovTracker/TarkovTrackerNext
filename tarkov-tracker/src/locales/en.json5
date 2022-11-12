@@ -49,6 +49,16 @@
         }
       }
     },
+    team: {
+      title: 'Team',
+      card: {
+        manageteam: {
+          title: 'Manage Team',
+          description: 'Invite players to your team, or join a team.',
+          button: 'Manage Team'
+          },
+        }
+    },
     login: {
       title: 'Login'
     },
@@ -69,6 +79,12 @@
     ukraine: {
       support_link: 'Support Ukraine',
       support_phrase: '{support_ukraine} via the ICRC'
+    }
+  },
+  module: {
+    team_settings: {
+      title: 'Team Settings',
+      description: 'Configure your team settings.',
     }
   },
   navigation_drawer: {

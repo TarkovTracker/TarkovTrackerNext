@@ -11,6 +11,40 @@
 
     <v-toolbar-title>{{ $t(`page.${route.name}.title`)}}</v-toolbar-title>
     
+    <span v-if="dataError">
+      <!-- Show an icon and tooltip if we have a GraphQL error -->
+      <v-tooltip
+          activator="parent"
+          location="left"
+        >
+        Error Loading Tarkov Data
+        <template #activator="{ props }">
+          <v-icon
+            v-bind="props"
+            class="mx-auto"
+          >
+            mdi-database-alert
+          </v-icon>
+        </template>
+      </v-tooltip>
+    </span>
+    <span v-if="dataLoading">
+      <!-- Show an icon and tooltip while we load the GraphQL result -->
+      <v-tooltip
+          activator="parent"
+          location="left"
+        >
+        Loading Tarkov Data
+        <template #activator="{ props }">
+          <v-progress-circular
+            v-bind="props"
+            indeterminate
+            color="secondary"
+            class="mx-2"
+          ></v-progress-circular>
+        </template>
+      </v-tooltip>
+    </span>
     <template #append>
       <v-menu
       v-model="state.menu"
@@ -28,7 +62,7 @@
 
 <script setup>
 import { computed } from 'vue'
-import { defineAsyncComponent } from "vue";
+import { defineAsyncComponent, inject } from "vue";
 import { useAppStore } from "@/stores/app.js";
 import { useDisplay } from 'vuetify'
 import { useRoute } from 'vue-router'
@@ -47,6 +81,8 @@ const navBarIcon = computed(() => {
 const OverflowMenu = defineAsyncComponent(() =>
   import("/src/components/layout/OverflowMenu.vue")
 )
+
+const { dataLoading, dataError } = inject('tarkov-data')
 
 // Change how the navigation bar is modified based upon the screen size
 // Either change between open/close or rail/full

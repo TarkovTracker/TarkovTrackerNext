@@ -33,6 +33,12 @@ const routes = [
         meta: { background: 'checkpoint' },
         component: () => import("@/pages/LoginInterface.vue"),
       },
+      {
+        name: 'team',
+        path: "/team",
+        meta: { background: 'busstation' },
+        component: () => import("@/pages/TeamManagement.vue"),
+      },
     ]
   },
 ];

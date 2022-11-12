@@ -4,7 +4,7 @@
     :to="props.to"
   >
     <v-icon :icon="props.icon"/>
-    <v-list-item-title v-if="!appStore.drawerUseRail(mdAndDown)" :class="titleClass">
+    <v-list-item-title v-if="!appStore.drawerUseRail(mdAndDown)" :class="titleClass" style="display: inline-flex;">
     <template v-if="props.localeKey">
       {{ $t(`navigation_drawer.${props.localeKey}`) }}
     </template>

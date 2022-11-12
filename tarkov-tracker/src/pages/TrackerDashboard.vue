@@ -1,11 +1,5 @@
 <template>
   <v-container>
-    <v-row v-if="dataLoading == true">
-      <v-progress-circular
-        indeterminate
-        color="primary"
-      ></v-progress-circular>
-    </v-row>
     <v-row justify="center">
       <v-col
         cols="12"
@@ -55,7 +49,7 @@ const TrackerStat = defineAsyncComponent(() =>
   import("@/components/TrackerStat.vue")
 )
 
-const { tasks, objectives, dataLoading } = inject('tarkov-data')
+const { tasks, objectives } = inject('tarkov-data')
 const totalQuests = computed(() => { return tasks.value?.length })
 
 const totalObjectives = computed(() => { return objectives.value?.length })

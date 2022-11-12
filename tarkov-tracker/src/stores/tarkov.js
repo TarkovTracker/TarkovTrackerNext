@@ -48,13 +48,17 @@ const useRemoteTarkovStore = defineStore('remoteTarkov', {
   state: () => (JSON.parse(JSON.stringify(defaultState))),
   getters: getters,
   actions: actions,
-  firestore: {
-    // {uid} will be replaced by the current auth'ed user's uid on bind 
-    document: 'progress/{uid}',
-    // The number of miliseconds to debounce changes to the firestore document
-    debouncems: 250,
+  firestore: [
+      {
+        path: 'account.save',
+        // {uid} will be replaced by the current auth'ed user's uid on bind 
+        document: 'progress/{uid}',
+        // The number of miliseconds to debounce changes to the firestore document
+        debouncems: 250,
+      }
+    ]
   }
-})
+)
 
 const useLocalTarkovStore = defineStore('localTarkov', {
   // Use the shared default state

@@ -4,21 +4,15 @@
 
     <!-- Application Bar-->
     <app-bar />
-    <v-img
-      :src='backgroundImage'
-      gradient="to top, #00000075, #00000095"
-      min-height="100vh"
-      alt="Background image"
-      cover
-    >
-      <div class="background-image">
+    <div id="tracker-page-background">
+      <div id="tracker-page-background-blur">
         <!-- Main View -->
         <v-main class="ma-3 fill-height">
           <router-view />
         </v-main>
         <app-footer />
       </div>
-    </v-img>
+    </div>
 </template>
 
 <script setup>
@@ -30,7 +24,7 @@ const route = useRoute()
 
 const backgroundImage = computed(() => {
   if (route.meta.background) {
-    return `/img/background/${route.meta.background}.webp`
+    return `url(/img/background/${route.meta.background}.webp)`
   }else{
     return ''
   }
@@ -47,9 +41,17 @@ const AppBar = defineAsyncComponent(() =>
 )
 </script>
 <style lang="scss" scoped>
-.background-image {
+#tracker-page-background {
+  background-image: v-bind(backgroundImage);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  height: 100%;
+}
+
+#tracker-page-background-blur {
   background: rgba(255, 255, 255, 0.01); // Make sure this color has an opacity of less than 1
-  backdrop-filter: blur(6px);
+  backdrop-filter: blur(5px) brightness(30%);
   height: 100vh;
   width: 100%;
   position:fixed;

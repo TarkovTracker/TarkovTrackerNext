@@ -15,15 +15,9 @@
             <v-list-item v-bind="props" :title="fireuser.displayName" :prepend-avatar="fireuser.photoURL"></v-list-item>
           </template>
         </template>
+        <drawer-item icon="mdi-account-group" locale-key="team" to="/team" />
         <drawer-item icon="mdi-lock" locale-key="logout" @click.stop="logout" />
       </v-list-group>
-      <v-dialog v-model="teamDialog">
-        <template #activator="{ props }">
-          <drawer-item icon="mdi-account-group" locale-key="team" v-bind="props" />
-        </template>
-        <team-settings>
-        </team-settings>
-      </v-dialog>
     </template>
     <template v-else>
       <drawer-item icon="mdi-fingerprint" locale-key="login" to="/login" />
@@ -32,7 +26,7 @@
 </template>
 <script setup>
 import { fireapp, fireuser } from '@/plugins/firebase'
-import { defineAsyncComponent, ref } from "vue";
+import { defineAsyncComponent } from "vue";
 import { useAppStore } from "@/stores/app.js";
 import { useDisplay } from 'vuetify'
 const { mdAndDown } = useDisplay()
@@ -42,18 +36,16 @@ const DrawerItem = defineAsyncComponent(() =>
   import("@/components/drawer/DrawerItem.vue")
 );
 
-const TeamSettings = defineAsyncComponent(() =>
-  import("@/components/TeamSettings.vue")
-);
-
 function logout() {
   fireapp.auth().signOut()
 }
 
-const teamDialog = ref(false)
-
 </script>
 <style lang="scss" scoped>
+:global(body > div.v-overlay-container > div.allow-overflow > div.v-overlay__content > div.v-sheet) {
+  overflow-y: visible;
+}
+
 .fake-link {
   cursor: pointer;
 }
